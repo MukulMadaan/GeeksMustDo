@@ -13,6 +13,36 @@ int main() {
 	        cin>>arr[i];
 	    }
 	    for(int i = 0 ; i < n ; i ++){
+	        pq.push(arr[i]);
+	        if(pq.size() > k) pq.pop();
+            
+	        if(pq.size() == k){
+                cout<<pq.top()<<" ";
+            } else
+                cout<<"-1"<<" ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
+
+//Redundamt Code
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int k,n;
+	    cin>>k>>n;
+	    vector<int> arr(n);
+	    priority_queue<int, vector<int>, greater<int>> pq;
+	    for(int i = 0 ; i < n ; i ++){
+	        cin>>arr[i];
+	    }
+	    for(int i = 0 ; i < n ; i ++){
 	        if(pq.size() < k){
 	            pq.push(arr[i]);
 	            if(pq.size() == k) cout<<pq.top()<<" ";
