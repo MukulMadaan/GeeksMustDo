@@ -34,3 +34,24 @@ int main() {
 }
 
 //Easier Solution
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int a,b;
+	    cin>>a>>b;
+	    int aa = min(a, b);
+	    int bb = max(a, b);
+	    int bitsA = floor(log2(a) + 1);
+	    int bitsB = floor(log2(b) + 1);
+	    int val = abs(bitsA - bitsB);
+	    aa = aa << val;
+	    int ans = aa ^ bb;
+	    cout<<ans<<endl;
+	    
+	}
+	return 0;
+}
