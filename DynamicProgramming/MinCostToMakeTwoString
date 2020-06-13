@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+int LCS(string X,string Y,int n1,int n2)
+{
+    int len[n1+1][n2+1];
+    for(int i=0;i<=n1;i++)
+    {
+        for(int j=0;j<=n2;j++)
+        {
+            if(i==0 || j==0)
+            len[i][j]=0;
+            else if(X[i-1]==Y[j-1])
+            len[i][j]=len[i-1][j-1]+1;
+            else
+            len[i][j]=max(len[i-1][j],len[i][j-1]);
+        }
+    }
+    return len[n1][n2];
+}
+int main()
+ {
+	int t,cX,cY;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>cX>>cY;
+	    string X,Y;
+	    cin>>X>>Y;
+	    int n1=X.length();
+	    int n2=Y.length();
+	    int lcs=LCS(X,Y,n1,n2);
+	    int res=(n1-lcs)*cX+(n2-lcs)*cY;
+	    cout<<res<<endl;
+	}
+	return 0;
+}
