@@ -32,6 +32,10 @@ int main() {
 	        if(num == dest1 || num == dest2) res += val;
 	        num++;
 	    }
+	    if(num <= dest2){
+	        if(i < n) res += arr1[i];
+	        if(j < n) res += arr2[j];
+	    }
 	    cout<<res<<endl;
 	}
 	return 0;
