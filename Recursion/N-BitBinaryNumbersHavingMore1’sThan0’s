@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+
+void prefix(string s, int ones, int zeros, int n)
+{
+    if(s.length() == n) {
+        cout<<s<<" ";
+        return;
+    }
+    prefix(s+'1', ones+1, zeros, n);
+    if(zeros+1 <= ones) prefix(s+'0', ones, zeros+1, n);
+}
+
+int main()
+ {
+	//code
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	
+	int t;cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    prefix("1", 1, 0, n);
+	    cout<<"\n";
+	}
+	return 0;
+}
