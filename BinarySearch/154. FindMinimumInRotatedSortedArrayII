@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int bs(vector<int>nums,int low,int high){
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            if(nums[mid]<nums[high]) high=mid;
+            else if(nums[mid]>nums[high]) low=mid+1;
+            else high--;
+        }
+        return nums[low];
+    }
+    int findMin(vector<int>& nums) {
+        return bs(nums,0,nums.size()-1);
+    }
+	
+};
+
+// Less Efficient
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int n = nums.size();
+        int lo = 0;
+        int hi = n - 1;
+        while(lo < hi){
+            int mid = lo + (hi - lo)/2;
+            if(nums[lo] == nums[hi]){
+                lo++;
+                hi--;
+                continue;
+            }
+            if(nums[mid] <= nums[hi]) hi = mid;
+            else lo = mid + 1;
+        }
+        return nums[0] < nums[lo] ? nums[0]: nums[lo];
+    }
+};
